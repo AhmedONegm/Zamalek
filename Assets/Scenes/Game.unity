@@ -992,8 +992,8 @@ MonoBehaviour:
   - {fileID: 7517250068780411263, guid: f324a4d9460c996448cc3d2d9a0b79ff, type: 3}
   - {fileID: 5672609647932454914, guid: 798d905d1cdc097408200f0904dc7f7e, type: 3}
   - {fileID: 7878549202050680967, guid: 3e5ea492df72f94439547e6efb85d630, type: 3}
-  isMediumCardsActive: 1
-  isHardCardsActive: 0
+  isMediumCardsActive: 0
+  isHardCardsActive: 1
   numberOfObjects: 6
   flippedCard1: {fileID: 0}
   flippedCard2: {fileID: 0}
