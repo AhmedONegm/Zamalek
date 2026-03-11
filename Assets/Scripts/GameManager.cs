@@ -6,11 +6,54 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] Renderer[] renderers= new Renderer[0];
     public static GameManager Instance;
-    public Material cardBackMaterial;
-    private void OnMouseDown()
+
+    public GameObject easyCards;
+    public GameObject mediumCards;
+    public GameObject hardCards;
+
+    public List<GameObject> gameObjects;
+
+    public bool isMediumCardsActive;
+    public bool isHardCardsActive;
+
+    public int numberOfObjects = 6;
+
+    private void Start()
     {
-        Debug.Log("Mouse down on GameManager");
+        easyCards.SetActive(true);
+        int randomInt = Random.Range(0, numberOfObjects);
+
+        for (int i = 0; i<easyCards.transform.childCount; i++)
+        {
+            easyCards.transform.GetChild(i);
+            GameObject instantiatedChild = Instantiate(gameObjects[randomInt], easyCards.transform.GetChild(i));
+            gameObjects.RemoveAt(randomInt);
+        }
+
+        if (isHardCardsActive)
+        {
+            numberOfObjects += 6;
+
+            hardCards.SetActive(true);
+
+            isMediumCardsActive = true;
+
+            foreach (Transform child in hardCards.transform)
+            {
+            }
+        }
+
+        if (isMediumCardsActive)
+        {
+            numberOfObjects += 6;
+
+            mediumCards.SetActive(true);
+
+            foreach (Transform child in mediumCards.transform)
+            {
+            }
+        }
+        Debug.Log("Number of objects: " + numberOfObjects);
     }
 }
