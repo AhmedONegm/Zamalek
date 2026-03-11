@@ -24,6 +24,12 @@ public class CardHandler : MonoBehaviour
             if (gameObject.name == GameManager.flippedCardName)
             {
                 Debug.Log("Card matched: " + gameObject.name);
+                GameManager.score++;
+                GameManager.Instance.UpdateScoreUI();
+                if (GameManager.score == GameManager.Instance.numberOfObjects / 2)
+                {
+                    Debug.Log("All cards matched! Score: " + GameManager.score);
+                }
             }
             GameManager.flippedCardName = gameObject.name;
         }

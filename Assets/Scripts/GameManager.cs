@@ -21,7 +21,21 @@ public class GameManager : MonoBehaviour
     public int numberOfObjects = 6;
 
     public static string flippedCardName = "";
-
+    public static int score = 0;
+    
+    //[SerializeField] private AudioSource audioSource;
+    //[SerializeField] private AudioClip flipSound;
+    
+    [SerializeField] private TMPro.TextMeshProUGUI scoreUI;
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
     private void Start()
     {
         easyCards.SetActive(true);
@@ -52,5 +66,14 @@ public class GameManager : MonoBehaviour
             randomInt = Random.Range(0, cardsLeft);
         }
         Debug.Log("Number of objects: " + numberOfObjects);
+    }
+
+    //public void PlayFlipSound()
+    //{
+    //    audioSource.PlayOneShot(flipSound);
+    //}
+    public void UpdateScoreUI()
+    {
+        scoreUI.text = "Score: " + score;
     }
 }
