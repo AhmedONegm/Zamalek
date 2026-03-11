@@ -10,34 +10,64 @@ public class CardHandler : MonoBehaviour
     private void Awake()
     {
         if (animator == null)
-        {
             animator = GetComponent<Animator>();
-        }
     }
+
     private void OnMouseDown()
     {
-        Debug.Log("Mouse down on"+gameObject.name);
-        isFlipped = !isFlipped;
-        if (isFlipped)
+        Debug.Log("Mouse down on " + gameObject.name);
+
+        if (isFlipped) return;
+
+        isFlipped = true;
+        animator.SetTrigger("IsFlipped");
+        GameManager.Instance.PlaySound(GameManager.Instance.flipSound);
+
+        GameManager.Instance.flippedCardsCount++;
+
+        if (GameManager.Instance.flippedCardsCount == 1)
         {
-            animator.SetTrigger("IsFlipped");
-            GameManager.Instance.PlayFlipSound();
-            if (gameObject.name == GameManager.Instance.flippedCardName)
+            GameManager.Instance.flippedCard1 = gameObject;
+        }
+        else if (GameManager.Instance.flippedCardsCount == 2)
+        {
+            GameManager.Instance.flippedCard2 = gameObject;
+
+            if (GameManager.Instance.flippedCard1.name == GameManager.Instance.flippedCard2.name)
             {
-                Debug.Log("Card matched: " + gameObject.name);
+                Debug.Log("Card matched!");
+
+                GameManager.Instance.PlaySound(GameManager.Instance.matchSound);
+
                 GameManager.Instance.score++;
                 GameManager.Instance.UpdateScoreUI();
-                if (GameManager.Instance.score == GameManager.Instance.numberOfObjects / 2)
-                {
-                    Debug.Log("All cards matched! Score: " + GameManager.Instance.score);
-                }
+
+                GameManager.Instance.flippedCardsCount = 0;
             }
-            GameManager.Instance.flippedCardName = gameObject.name;
-        }
-        else
-        {
-            animator.SetTrigger("IsBack");
-            GameManager.Instance.PlayFlipSound();
+            else
+            {
+                Debug.Log("Too many cards flipped! Resetting.");
+                Invoke("ResetFlippedCards", 1f);
+            }
+
+            if (GameManager.Instance.score == GameManager.Instance.numberOfObjects / 2)
+            {
+                Debug.Log("All cards matched! Score: " + GameManager.Instance.score);
+                GameManager.Instance.PlaySound(GameManager.Instance.winSound);
+            }
         }
     }
+    void ResetFlippedCards()
+    {
+        GameManager.Instance.flippedCardsCount = 0;
+
+        GameManager.Instance.flippedCard1.GetComponent<CardHandler>().animator.SetTrigger("IsBack");
+        GameManager.Instance.flippedCard2.GetComponent<CardHandler>().animator.SetTrigger("IsBack");
+
+        GameManager.Instance.flippedCard1.GetComponent<CardHandler>().isFlipped = false;
+        GameManager.Instance.flippedCard2.GetComponent<CardHandler>().isFlipped = false;
+
+        Debug.Log("Flipped cards reset.");
+    }
+
 }

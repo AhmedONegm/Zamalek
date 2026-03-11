@@ -15,17 +15,25 @@ public class GameManager : MonoBehaviour
     public GameObject[] cards;
     public List<GameObject> gameObjects;
 
-    public bool isMediumCardsActive;
-    public bool isHardCardsActive;
+    public static bool isMediumCardsActive;
+    public static bool isHardCardsActive;
 
     public int numberOfObjects = 6;
 
-    public string flippedCardName = "";
+    public GameObject flippedCard1;
+    public GameObject flippedCard2;
+
     public int score = 0;
     
+    public int flippedCardsCount = 0;
+
     [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip flipSound;
     
+    public AudioClip flipSound;
+    public AudioClip matchSound;
+    public AudioClip errorSound;
+    public AudioClip winSound;
+
     [SerializeField] private TMPro.TextMeshProUGUI scoreUI;
     private void Awake()
     {
@@ -35,6 +43,7 @@ public class GameManager : MonoBehaviour
             return;
         }
         Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
     private void Start()
     {
@@ -68,9 +77,9 @@ public class GameManager : MonoBehaviour
         Debug.Log("Number of objects: " + numberOfObjects);
     }
 
-    public void PlayFlipSound()
+    public void PlaySound(AudioClip clip)
     {
-        audioSource.PlayOneShot(flipSound);
+        audioSource.PlayOneShot(clip);
     }
 
     public void UpdateScoreUI()

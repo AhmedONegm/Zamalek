@@ -992,13 +992,18 @@ MonoBehaviour:
   - {fileID: 7517250068780411263, guid: f324a4d9460c996448cc3d2d9a0b79ff, type: 3}
   - {fileID: 5672609647932454914, guid: 798d905d1cdc097408200f0904dc7f7e, type: 3}
   - {fileID: 7878549202050680967, guid: 3e5ea492df72f94439547e6efb85d630, type: 3}
-  isMediumCardsActive: 0
+  isMediumCardsActive: 1
   isHardCardsActive: 0
   numberOfObjects: 6
-  flippedCardName: 
+  flippedCard1: {fileID: 0}
+  flippedCard2: {fileID: 0}
   score: 0
+  flippedCardsCount: 0
   audioSource: {fileID: 583871033}
   flipSound: {fileID: 8300000, guid: 8588d9547f0f2f044bbebcf9c1e35e40, type: 3}
+  matchSound: {fileID: 8300000, guid: ac02b524a6fc6fa41bac554935c8d417, type: 3}
+  errorSound: {fileID: 8300000, guid: 78fed595f7e3e4c4ba39d837de399c76, type: 3}
+  winSound: {fileID: 8300000, guid: 76bf9fcc918476b48899e9e017ded728, type: 3}
   scoreUI: {fileID: 2117127823}
 --- !u!4 &1629509837
 Transform:
