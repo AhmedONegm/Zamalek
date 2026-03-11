@@ -21,22 +21,23 @@ public class CardHandler : MonoBehaviour
         if (isFlipped)
         {
             animator.SetTrigger("IsFlipped");
-            if (gameObject.name == GameManager.flippedCardName)
+            GameManager.Instance.PlayFlipSound();
+            if (gameObject.name == GameManager.Instance.flippedCardName)
             {
                 Debug.Log("Card matched: " + gameObject.name);
-                GameManager.score++;
+                GameManager.Instance.score++;
                 GameManager.Instance.UpdateScoreUI();
-                if (GameManager.score == GameManager.Instance.numberOfObjects / 2)
+                if (GameManager.Instance.score == GameManager.Instance.numberOfObjects / 2)
                 {
-                    Debug.Log("All cards matched! Score: " + GameManager.score);
+                    Debug.Log("All cards matched! Score: " + GameManager.Instance.score);
                 }
             }
-            GameManager.flippedCardName = gameObject.name;
+            GameManager.Instance.flippedCardName = gameObject.name;
         }
         else
         {
             animator.SetTrigger("IsBack");
+            GameManager.Instance.PlayFlipSound();
         }
-        
     }
 }
