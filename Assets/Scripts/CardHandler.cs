@@ -21,6 +21,11 @@ public class CardHandler : MonoBehaviour
         if (isFlipped)
         {
             animator.SetTrigger("IsFlipped");
+            if (gameObject.name == GameManager.flippedCardName)
+            {
+                Debug.Log("Card matched: " + gameObject.name);
+            }
+            GameManager.flippedCardName = gameObject.name;
         }
         else
         {

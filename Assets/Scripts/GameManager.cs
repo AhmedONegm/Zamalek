@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
 
     public int numberOfObjects = 6;
 
+    public static string flippedCardName = "";
+
     private void Start()
     {
         easyCards.SetActive(true);
@@ -45,7 +47,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < numberOfObjects; i++)
         {
             GameObject card = Instantiate(gameObjects[randomInt], cards[i].transform);
-            gameObjects.RemoveAt(randomInt);
+            gameObjects.Remove(gameObjects[randomInt]);
             cardsLeft -= 1;
             randomInt = Random.Range(0, cardsLeft);
         }
