@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public GameObject mediumCards;
     public GameObject hardCards;
 
+    public GameObject[] cards;
     public List<GameObject> gameObjects;
 
     public bool isMediumCardsActive;
@@ -22,14 +23,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         easyCards.SetActive(true);
-        int randomInt = Random.Range(0, numberOfObjects);
-
-        for (int i = 0; i<easyCards.transform.childCount; i++)
-        {
-            easyCards.transform.GetChild(i);
-            GameObject instantiatedChild = Instantiate(gameObjects[randomInt], easyCards.transform.GetChild(i));
-            gameObjects.RemoveAt(randomInt);
-        }
 
         if (isHardCardsActive)
         {
@@ -38,10 +31,6 @@ public class GameManager : MonoBehaviour
             hardCards.SetActive(true);
 
             isMediumCardsActive = true;
-
-            foreach (Transform child in hardCards.transform)
-            {
-            }
         }
 
         if (isMediumCardsActive)
@@ -49,10 +38,16 @@ public class GameManager : MonoBehaviour
             numberOfObjects += 6;
 
             mediumCards.SetActive(true);
+        }
 
-            foreach (Transform child in mediumCards.transform)
-            {
-            }
+        int randomInt = Random.Range(0, numberOfObjects);
+        int cardsLeft = numberOfObjects;
+        for (int i = 0; i < numberOfObjects; i++)
+        {
+            GameObject card = Instantiate(gameObjects[randomInt], cards[i].transform);
+            gameObjects.RemoveAt(randomInt);
+            cardsLeft -= 1;
+            randomInt = Random.Range(0, cardsLeft);
         }
         Debug.Log("Number of objects: " + numberOfObjects);
     }

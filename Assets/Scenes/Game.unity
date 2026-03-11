@@ -826,15 +826,46 @@ MonoBehaviour:
   easyCards: {fileID: 770552192}
   mediumCards: {fileID: 607384659}
   hardCards: {fileID: 1761029736}
+  cards:
+  - {fileID: 1656644296}
+  - {fileID: 1640154744}
+  - {fileID: 1443018875}
+  - {fileID: 1200097771}
+  - {fileID: 1983200576}
+  - {fileID: 1045520328}
+  - {fileID: 1648032426}
+  - {fileID: 1245943942}
+  - {fileID: 780182859}
+  - {fileID: 391577322}
+  - {fileID: 1196620688}
+  - {fileID: 1297014084}
+  - {fileID: 1674861812}
+  - {fileID: 155265205}
+  - {fileID: 243380191}
+  - {fileID: 1221989773}
+  - {fileID: 2093857475}
+  - {fileID: 589450904}
   gameObjects:
   - {fileID: 6494885496602203110, guid: d026aae75731cbf43a4d9b7c6bc9bb8b, type: 3}
   - {fileID: 8112645595134119853, guid: ff611a1c1e308814da43ad58e7ded9a6, type: 3}
   - {fileID: 839365708460455880, guid: d669eda2aa669ce43a8a85e0e6603f38, type: 3}
+  - {fileID: 6494885496602203110, guid: d026aae75731cbf43a4d9b7c6bc9bb8b, type: 3}
+  - {fileID: 8112645595134119853, guid: ff611a1c1e308814da43ad58e7ded9a6, type: 3}
+  - {fileID: 839365708460455880, guid: d669eda2aa669ce43a8a85e0e6603f38, type: 3}
+  - {fileID: 8119756726442192011, guid: 08d69ef8d8d1c6145b47da9a50393665, type: 3}
   - {fileID: 8119756726442192011, guid: 08d69ef8d8d1c6145b47da9a50393665, type: 3}
   - {fileID: 4543538450546848536, guid: 3a797b83213304947afc1e65d5af1a2c, type: 3}
+  - {fileID: 4543538450546848536, guid: 3a797b83213304947afc1e65d5af1a2c, type: 3}
   - {fileID: 8619041958904605550, guid: 9f68cc4f918961743a3bef5898af329a, type: 3}
+  - {fileID: 8619041958904605550, guid: 9f68cc4f918961743a3bef5898af329a, type: 3}
+  - {fileID: 7878549202050680967, guid: 3e5ea492df72f94439547e6efb85d630, type: 3}
+  - {fileID: 5672609647932454914, guid: 798d905d1cdc097408200f0904dc7f7e, type: 3}
+  - {fileID: 7517250068780411263, guid: f324a4d9460c996448cc3d2d9a0b79ff, type: 3}
+  - {fileID: 7517250068780411263, guid: f324a4d9460c996448cc3d2d9a0b79ff, type: 3}
+  - {fileID: 5672609647932454914, guid: 798d905d1cdc097408200f0904dc7f7e, type: 3}
+  - {fileID: 7878549202050680967, guid: 3e5ea492df72f94439547e6efb85d630, type: 3}
   isMediumCardsActive: 0
-  isHardCardsActive: 0
+  isHardCardsActive: 1
   numberOfObjects: 6
 --- !u!4 &1629509837
 Transform:

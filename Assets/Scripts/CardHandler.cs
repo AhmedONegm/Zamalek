@@ -5,6 +5,8 @@ using UnityEngine;
 public class CardHandler : MonoBehaviour
 {
     Animator animator;
+    bool isFlipped = false;
+
     private void Awake()
     {
         if (animator == null)
@@ -14,7 +16,16 @@ public class CardHandler : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        Debug.Log("Mouse down on GameManager");
-        animator.SetBool("IsSelected", true);
+        Debug.Log("Mouse down on"+gameObject.name);
+        isFlipped = !isFlipped;
+        if (isFlipped)
+        {
+            animator.SetTrigger("IsFlipped");
+        }
+        else
+        {
+            animator.SetTrigger("IsBack");
+        }
+        
     }
 }

@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8619041958904605546}
   - component: {fileID: 8619041958904605557}
   - component: {fileID: 8619041958904605545}
-  - component: {fileID: 8619041958904605551}
   - component: {fileID: 8619041958904605556}
+  - component: {fileID: 7158959462629922821}
   m_Layer: 0
   m_Name: 6
   m_TagString: Untagged
@@ -99,20 +99,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8619041958904605551
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8619041958904605550}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!95 &8619041958904605556
 Animator:
   serializedVersion: 5
@@ -123,7 +109,7 @@ Animator:
   m_GameObject: {fileID: 8619041958904605550}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 810903d19fd5de541aa68d47f0e1b9df, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7952d1f01f2938f49be72074e9047aad, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -134,3 +120,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &7158959462629922821
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8619041958904605550}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 6.1232336e-17}
+  m_Center: {x: 0, y: 0, z: 0}
