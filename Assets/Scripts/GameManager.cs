@@ -15,8 +15,8 @@ public class GameManager : MonoBehaviour
     public GameObject[] cards;
     public List<GameObject> gameObjects;
 
-    public static bool isMediumCardsActive;
-    public static bool isHardCardsActive;
+    public bool isMediumCardsActive;
+    public bool isHardCardsActive;
 
     public int numberOfObjects = 6;
 
